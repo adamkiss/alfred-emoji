@@ -27,4 +27,4 @@ module.exports = run
 
 // Node.js Testing Interface
 // IMPORTANT: keep this commented out unless manually testing
-// run(process.argv.slice(2))
+run(process.argv.slice(2))

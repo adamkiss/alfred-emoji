@@ -11,10 +11,10 @@ const resetWordsForPasteByDefault = () => {
   preposition = 'as snippet'
 }
 
-const alfredItem = (emoji, name) => {
+const alfredItem = (emoji, name, keywords) => {
   return {
     uid: name,
-    title: name,
+    title: `${name} (${keywords.join(', ')})`,
     subtitle: `${verb} "${emoji}" (${name}) ${preposition}`,
     arg: emoji,
     autocomplete: name,
@@ -33,7 +33,7 @@ const alfredItems = (names) => {
   names.forEach((name) => {
     const emoji = emojilib.lib[name].char
     if (!emoji) return
-    items.push(alfredItem(emoji, name))
+    items.push(alfredItem(emoji, name, emojilib.lib[name].keywords))
   })
   return { items }
 }
